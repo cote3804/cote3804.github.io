@@ -1,0 +1,23 @@
+.div-wrapper {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.div-wrapper img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.grey-square {
+    background-color: #6c757d; /* Bootstrap's secondary color */
+    width: 200px;
+    height: 200px;
+  }
+
+.custom-vh-75 {
+min-height: 75vh;
+}

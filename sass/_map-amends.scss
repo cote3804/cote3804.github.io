@@ -1,0 +1,10 @@
+// cutsom sass map
+$custom-colors: (
+    "other_color": #6ce2fa,
+    "big_blue": #BFDBF7
+);
+
+// @import '../node_modules/bootstrap/scss/bootstrap';
+
+// merge maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
