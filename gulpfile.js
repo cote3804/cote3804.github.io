@@ -13,6 +13,8 @@ const paths = {
 async function includeHTML(){
   return src([
     './source/*.html',
+    './source/*.md',
+    './source/*.js',
     '!header.html', // ignore
     '!footer.html' // ignore
     ])

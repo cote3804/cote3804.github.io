@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "markdown-it": "^14.1.0",
+    "showdown": "^2.1.0",
+    "showdown-math": "^0.0.4"
   },
   "devDependencies": {
     "gulp": "^5.0.0",

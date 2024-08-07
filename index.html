@@ -6,10 +6,12 @@
     <title>Document</title>
     <link href="/css/main.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.2/markdown-it.min.js"
+        integrity="sha512-TIDbN32lXOg2Mw1VcnKrQLZgfALryJogWCu/NHWtlMCR1jget+mOwMtdehBBZz2f9PKeK2AQPwVxkbl4u/1H5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="bg-dark">
-  <div class="container-fluid px-0" >
+  <div class="container-fluid px-0" > 
     <nav class="navbar navbar-expand-lg navbar-dark bg-navbardark">
     <div class="container-fluid">
       <a class="navbar-brand h1" href="#"></a>
@@ -58,7 +60,7 @@
           <div class="row flex-grow-1">
             <div class="col align-self-center">
               <p class="fs-1 fw-bold text-center text-light">Cooper Tezak</p>
-              <img src="/images/self_boat_face_smaller.png", class="image-fluid" style="max-width:40%;">
+              <img src="/images/headshot_atoms_circle.png", class="image-fluid" style="max-width:40%;">
             </div>
           </div>
         </div> 
@@ -77,5 +79,49 @@
 <!-- <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-other_color">Tertiary</button> -->
+<h1>MathJax with Custom Colors Example</h1>
+  
+<div id="content">
+  <p>
+    This is an example of inline math: \(E = mc^2\)
+  </p>
+  <p>
+    And here is an example of display math:
+  </p>
+  <p>
+    $$
+    \int_{a}^{b} f(x) \,dx
+    $$
+  </p>
+</div>
+
+<script>
+  // Configure MathJax
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      renderActions: {
+        addColor: [10, (doc) => {
+          for (const math of doc.math) {
+            const node = math.typesetRoot;
+            if (math.display) {
+              node.classList.add('mathjax-display');
+            } else {
+              node.classList.add('mathjax-inline');
+            }
+          }
+        }, '']
+      }
+    }
+  };
+
+  // Re-render MathJax after page load
+  window.addEventListener('load', () => {
+    MathJax.typesetPromise();
+  });
+</script>
 </body>
 </html>

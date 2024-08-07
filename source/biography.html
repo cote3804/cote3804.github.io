@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/main.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark">
+  <div class="container-fluid px-0" >  
+    @@include('navbar.html')
+  </div>
+  <style>
+    #content h1 { color: rgb(221, 221, 221); }
+    #content p { color: rgb(180, 180, 180); }
+    #content a { color: purple; }
+  </style>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container" id="content">
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var converter = new showdown.Converter();
+      converter.setFlavor('github');
+      fetch('/biography.md')
+        .then(response => response.text())
+        .then(text => {
+          document.getElementById('content').innerHTML = converter.makeHtml(text);
+        })
+        .catch(error =>
+          console.error('Error loading markdown file', error));
+        });
+        </script>
+      </div>
+    </div>
+  </div>
