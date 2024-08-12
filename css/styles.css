@@ -23,3 +23,39 @@ min-height: 75vh;
 }
 
 .custom-header {color: orange;}
+
+.transparent-column {
+    background-color: rgba(32, 32, 32, 0.85);
+    /* Or you can use hsla: */
+    /* background-color: hsla(0, 0%, 100%, 0.5); */
+    padding: 15px;
+  }
+
+.transparent-paragraph{
+    background-color: rgba(32, 32, 32, 0.85); 
+
+}
+
+.name-fontsize {
+    font-size: 3rem; /* Or any size you prefer */
+}
+
+.fullscreen-image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .fullscreen-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+  }
