@@ -1,0 +1,16 @@
+//custom variables
+$primary: #e8914b;
+$secondary: #ffb285;
+$light: #ffffff;
+// $dark: #b25305;
+
+$zindex-levels: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3
+);
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 4

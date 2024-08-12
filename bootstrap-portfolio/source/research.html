@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research</title>
+    <link href="/css/main.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="/images/white_atom_logo_small.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Include MathJax -->
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script> 
+    MathJax = { 
+        loader: {load: ['[tex]/color']},
+        tex: { 
+            inlineMath: [['$', '$'],  
+                        ['\\(', '\\)']],
+            packages: {'[+]': ['color']}
+        }, 
+        svg: { 
+            fontCache: 'global' 
+        } 
+    }; 
+    </script> 
+  </head>
+<body class="bg-dark">
+  <div class="container-fluid px-0" > 
+    @@include('navbar.html')
+  </div>
+  <div class="container">
+    <div class="h1 text-light">Research</div>
+  <div class="row pt-5">
+    <div class="col">
+      <div class="h3 text-light">Electrocatalyst Discovery</div>
+      <div class="p-0 text-light">
+        I combine electrochemical physics simulations with thermodynamic proxies of catalyst
+        activity to screen broad material spaces for active catalysts. Typical electrochemical studies
+        are done using the computational hydrogen electrode (CHE) model, in which the number of electrons
+        transferred in a step is assumed a-priori and must be coupled to simulataneous proton transfers. Following
+        the definition of the standard hydrogen electrode, one can set the chemical potential of a proton-electron pair equal to
+        one half that of a hydrogen atom. <br> <br>
+        \( G_{H^+} + G_{e^-} = -\frac{1}{2} G_{H_2} \) <br> <br>
+        The free energy of the proton is potential-independent and the potential dependence of the electron is 
+        given by the difference in potential from 0V vs SHE.<br> <br>
+        \( G_{e^-} = G_{e^-}^0 - (U - U_{SHE}^0)\) <br> <br>
+        This then allows one to estimate the 
+        <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.201500322">Limiting Potential \(U_{L}\)</a>
+        at which an electrochemical step becomes favorable by dividing the free energy change of that step by the number
+        of electrons transferred <br><br>
+        \( U_{L} = -\frac{\Delta G_{step}}{N_{e}} \) <br> <br>
+        This approach has been widely successful in predicting electrocatalyst activity across a variety of reactions.
+        <a href="https://pubs.acs.org/doi/10.1021/jp047349j">[1]</a>
+        <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.201500322">[2]</a>
+        <a href="https://iopscience.iop.org/article/10.1149/1.1856988">[3]</a> <br> <br>
+
+        However, the CHE model cannot handle non proton-coupled electron transfer steps and enforces an integer number 
+        of electrons transferred in each step. For many reactions, there is significant evidence of fractional electron
+        transfers as well as electron transfers that do not involve proton transfers. 
+        <a href="https://pubs.acs.org/doi/abs/10.1021/acscatal.2c01832">[4]</a>
+        To capture these phenomena, it is necessary to simulate the system at fixed electron potential and allow the number
+        of electrons to self-consistently vary. I perform these simulations using Grand Canonical DFT (GC-DFT), which allows me to 
+        study systems under true fixed potentials. <br> <br>
+
+        Using GC-DFT takes away the easy interpretability of \(U_{L}\) and requires a different catalyst activity
+        descriptor that has no formal potential dependence. I developed \( \Phi_{max} \), a thermodynamic approximation
+        of the 
+        <a href="https://pubs.acs.org/doi/10.1021/ar1000956">energetic span</a>, which measures the largest barrier in a
+        cyclic catalytic cycle. I used this descriptor to re-evaluate the typical CHE volcano plots for the electrochemical nitrogen
+        reduction reaction to understand how explicit inclusion of potential changes catalyst scaling relations. <br> <br>
+        
+
+      </div>
+    </div>
+      <div class="col">
+      <img src="/images/spans_bar_chart.png" class="img-fluid" alt="Spans Bar Chart">
+      <img src="/images/volvano.png" class="img-fluid" alt="Volcano Plot">
+    </div>
+  </div>
+</body>
