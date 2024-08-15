@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active fs-4" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link fs-4" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fs-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,22 +49,17 @@
     #content a { color: purple; }
   </style>
   <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="container" id="content">
-        <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var converter = new showdown.Converter();
-      converter.setFlavor('github');
-      fetch('/biography.md')
-        .then(response => response.text())
-        .then(text => {
-          document.getElementById('content').innerHTML = converter.makeHtml(text);
-        })
-        .catch(error =>
-          console.error('Error loading markdown file', error));
-        });
-        </script>
-      </div>
-    </div>
+    
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split("/").pop();
+        const navItems = document.querySelectorAll('.nav-link');
+        navItems.forEach(item => {
+            if (item.getAttribute('href') === currentPage) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>

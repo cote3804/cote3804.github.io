@@ -34,7 +34,7 @@
     <div class="h1 text-light">Research</div>
   <div class="row pt-5">
     <div class="col">
-      <div class="h3 text-light">Electrocatalyst Discovery</div>
+      <div class="h3 text-light">Electrocatalytic Scaling Relations</div>
       <div class="p-0 text-light">
         I combine electrochemical physics simulations with thermodynamic proxies of catalyst
         activity to screen broad material spaces for active catalysts. Typical electrochemical studies
@@ -44,8 +44,8 @@
         one half that of a hydrogen atom. <br> <br>
         \( G_{H^+} + G_{e^-} = -\frac{1}{2} G_{H_2} \) <br> <br>
         The free energy of the proton is potential-independent and the potential dependence of the electron is 
-        given by the difference in potential from 0V vs SHE.<br> <br>
-        \( G_{e^-} = G_{e^-}^0 - (U - U_{SHE}^0)\) <br> <br>
+        given by the potential with respect to the standard hydrogen electrode (SHE).<br> <br>
+        \( G_{e^-} = G_{e^-}^0 - U_{SHE}\) <br> <br>
         This then allows one to estimate the 
         <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.201500322">Limiting Potential \(U_{L}\)</a>
         at which an electrochemical step becomes favorable by dividing the free energy change of that step by the number
@@ -69,14 +69,46 @@
         of the 
         <a href="https://pubs.acs.org/doi/10.1021/ar1000956">energetic span</a>, which measures the largest barrier in a
         cyclic catalytic cycle. I used this descriptor to re-evaluate the typical CHE volcano plots for the electrochemical nitrogen
-        reduction reaction to understand how explicit inclusion of potential changes catalyst scaling relations. <br> <br>
+        reduction reaction to understand how explicit inclusion of potential changes catalyst scaling relations. 
+        <a href="https://pubs.acs.org/doi/abs/10.1021/acscatal.3c01978">[5]</a>
+        <br> <br>
         
-
+        <div class="h3 text-light">Electrocatalyst Screening</div>
+        Using the scaling relations developed above, I screened a material space for promising nitrogen reduction catalysts.
+        This space consisted of binary metal-covalent alloys that combined p-block dopants with transition metals. We found that
+        even the most active catalysts in our dataset did not surpass the the activity of the most active metal catalysts because these 
+        covalent alloy materials fail to favorably break scaling relations.        
+        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202304559">[6]</a>
+        <br><br>
+        Furthermore, we found that traditional electronic structure descriptors like d-band and p-band centers were unable to 
+        predict trends in binding energy across the dataset. We believe this is due to the highly geometry-dependent change in the renormalized
+        adsorbate frontier orbital energies, which lead to substantially different degrees of bonding for materials with similar d-band centers.
+        To correctly precict trends in binding energy across complex material spaces, it is necessary to incorporate the geometry of the surface.
+        <br><br>
+        <div class="h3 text-light">Bayesian Optimization of Battery Electrolyte Compositions</div>
+        I have recently begun working with 
+        <a href="https://www.colorado.edu/lab/ban/">Chunmei Ban</a>
+        on optimizing experimental electrolyte composition for Na-ion batteries. I lead the effort to develop a Bayesian optimization framework
+        that uses a gaussian process to estimate the charge capacity at a given cycle based on the mass weights of electrolyte components. 
+        <br><br>
       </div>
     </div>
-      <div class="col">
-      <img src="/images/spans_bar_chart.png" class="img-fluid" alt="Spans Bar Chart">
+    <div class="col">
       <img src="/images/volcano.png" class="img-fluid" alt="Volcano Plot">
+      <p class="fs-6 px-5 text-light" style="text-align: justify;">
+        Re-evaluated nitrogen reduction reaction scaling relations using GC-DFT and the \( \Phi_{max} \) activity descriptor. Unlike
+        previous scaling relations, there is a flat peak shaving off the top of the volcano due to the chemical desoption of \( NH_3 \) that is less sensitive
+        to the applied potential than the left and right scaling lines, which are comprised of explicit electron transfer steps. These volcanos indicate that 
+        tuning the activity of catalysts near the peak of the volcano at modest potentials necessitates selective destabilization of the \( NH_3^* \) state.
+        <br> <br>
+      </p>
+      <img src="/images/spans_bar_chart.png" class="img-fluid" alt="Spans Bar Chart">
+      <p class="fs-6 px-5 text-light" style="text-align: justify;">
+      Select materials from the binary covalent alloy screening study. We found that the most active surfaces in our dataset tended
+      to have less occupied d-orbitals that were capable of strongly reducing the \( N_2 \) triple bond. However, all materials were
+      inevitably limited by the desorption of \( NH_3* \) from the surface. <br> <br>
+      </p>
     </div>
   </div>
+  @@include('navbar_js.html')
 </body>
