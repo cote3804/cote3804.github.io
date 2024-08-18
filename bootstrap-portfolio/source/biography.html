@@ -18,22 +18,7 @@
     #content a { color: purple; }
   </style>
   <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="container" id="content">
-        <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var converter = new showdown.Converter();
-      converter.setFlavor('github');
-      fetch('/biography.md')
-        .then(response => response.text())
-        .then(text => {
-          document.getElementById('content').innerHTML = converter.makeHtml(text);
-        })
-        .catch(error =>
-          console.error('Error loading markdown file', error));
-        });
-        </script>
-      </div>
-    </div>
+    
   </div>
+  @@include('navbar_js.html')
+</body>
