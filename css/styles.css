@@ -45,17 +45,24 @@ min-height: 75vh;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-  }
+}
+
+.mobile-image-container {
+    position: relative;
+    /* width: 100vw; */
+    height: 100vh;
+    overflow: hidden;
+}
   
-  .fullscreen-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    max-width: none;
-    object-fit: cover;
-  }
+.fullscreen-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  object-fit: cover;
+}

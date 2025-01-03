@@ -32,7 +32,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/abs/10.1021/acscatal.3c01978">NRR Scaling Relations</a></li>
               <li><a class="dropdown-item" target="_blank" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202304559">NRR Catalyst Screening</a></li>
-              <li><a class="dropdown-item" target="_blank" href="https://arxiv.org/abs/2405.20239">Electrocatalysis Database</a></li>
+              <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06826">Electrocatalysis Database</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -47,77 +47,121 @@
   </nav>
 </nav>
   </div>
-  <div class="container-fluid text-center z-n1 position-absolute">
-    <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
-      <!-- <div class="col-3"></div> -->
-      <div class="fullscreen-image-container">
-        <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
+    <!-- Background image for desktop screen sizes -->
+    <div class="container-fluid text-center z-n1 position-absolute d-none d-sm-block">
+      <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+        <div class="fullscreen-image-container">
+          <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid d-flex flex-column custom-vh-75 z-2 position-relative text-center">
-    <div class="row flex-grow-1"> <!-- Title and other info -->
-      <!-- <div class="col-1"></div> -->
-      <div class="col-3 transparent-column" style="min-height:100vh">
-        <div class="container-fluid">
-          <div class="row flex-grow-1">
-            <p class="name-fontsize fw-bold text-center text-light">Cooper Tezak</p>
-            <div class="col-2"></div>
-            <div class="col-8 align-self-center">
-              <img src="/images/headshot_atoms_circle.png", class="image-fluid", style="max-width: 100%;">
-            </div>
-            <div class="col-2"></div>
+    <!-- Background image for mobile screen sizes -->
+    <div class="container-fluid text-center z-n1 position-absolute d-block d-sm-none">
+      <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+        <div class="mobile-image-container">
+          <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
+        </div>
+      </div>
+    </div>
+    <!-- Main Content for desktop -->
+    <div class="container-fluid d-flex flex-column custom-vh-75 z-2 position-relative text-center d-none d-sm-block">
+      <div class="row flex-grow-1"> <!-- Title and other info -->
+        <!-- <div class="col-1"></div> -->
+        <div class="col-3 transparent-column" style="min-height:100vh">
+          <div class="container-fluid">
             <div class="row flex-grow-1">
-              <p class="fs-2 text-light">PhD Student, CU Boulder</p>
-              <p class="fs-2 text-light">Atomic Broker</p>
-            <div class="row flex-grow-1 p-3">
-              <div class="col-3"></div>
-              <div class="col-2">
-                <a href="https://www.linkedin.com/in/cooper-tezak-75a15b165/" class="text-light" target="_blank">
-                  <img src="/images/linkedin-app-white-icon.png" class="img-fluid" alt="LinkedIn">
-                </a>
+              <p class="name-fontsize fw-bold text-center text-light">Cooper Tezak</p>
+              <div class="col-2"></div>
+              <div class="col-8 align-self-center">
+                <img src="/images/headshot_atoms_circle.png", class="image-fluid", style="max-width: 100%;">
               </div>
-              <div class="col-2">
-                <a href="https://github.com/cote3804" class="text-light" target="_blank">
-                  <img src="/images/github-logo-white.webp" class="img-fluid" alt="GitHub">
-                </a>
+              <div class="col-2"></div>
+              <div class="row flex-grow-1">
+                <p class="fs-2 text-light">PhD Student, CU Boulder</p>
+                <p class="fs-2 text-light">Atomic Broker</p>
+              <div class="row flex-grow-1 p-3">
+                <div class="col-3"></div>
+                <div class="col-2">
+                  <a href="https://www.linkedin.com/in/cooper-tezak-75a15b165/" class="text-light" target="_blank">
+                    <img src="/images/linkedin-app-white-icon.png" class="img-fluid" alt="LinkedIn">
+                  </a>
+                </div>
+                <div class="col-2">
+                  <a href="https://github.com/cote3804" class="text-light" target="_blank">
+                    <img src="/images/github-logo-white.webp" class="img-fluid" alt="GitHub">
+                  </a>
+                </div>
+                <div class="col-2">
+                  <a href="https://scholar.google.com/citations?user=XBZAHmIAAAAJ&hl=en" class="text-light" target="_blank">
+                    <img src="/images/scholar_logo_white.png" class="img-fluid" alt="GitHub">
+                  </a>
+                </div>
+                <div class="col-3"></div>
               </div>
-              <div class="col-2">
-                <a href="https://scholar.google.com/citations?user=XBZAHmIAAAAJ&hl=en" class="text-light" target="_blank">
-                  <img src="/images/scholar_logo_white.png" class="img-fluid" alt="GitHub">
-                </a>
               </div>
-              <div class="col-3"></div>
             </div>
+          </div> 
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7 align-self-start">
+          <div class="container">
+            <div class="row flex-grow-1 p-5 position-relative z-2"></div>
+            <div class="row flex-grow-1 p-3 position-relative z-2">
+              <div class="col align-self-start transparent-paragraph">
+                <p class="fs-2 fw-bold text-center text-light">Matching catalysts with reactions through simulation</p>
+                <p class="fs-5 text-light" style="text-align: justify;">I use grand-canonical density functional theory to simulate 
+                  the electrified interface between catalyst and electrolyte. My simulations have shown
+                  previously unknown potential dependence of fundamental catalytic phenomena that, across material
+                  spaces, have significant impacts on electrocatalyst design. The data generated throughout my PhD is 
+                  <a href="https://beastdb.nrel.gov/">publicly available</a> 
+                  and accompanied by an user interface that facilitates data exploration.</p>
+                  <p class="fs-5 text-light" style="text-align: justify;">
+                  I seek generalizable chemical knoweldge that can be used to design catalysts for arbitray
+                  reactions. By smartly restricting chemical space and leveraging massively parallel workflows,
+                  I can quickly downselect material spaces to a few promising candidates. My goal is to match
+                  catalysts with reactions by identfiying kinetic bottlenecks that can be manipulated with
+                  smart catalyst design. 
+                </p>
+              </div>
             </div>
-          </div>
-        </div> 
-      </div>
-      <div class="col-1"></div>
-      <div class="col-7 align-self-start">
-        <div class="container">
-          <div class="row flex-grow-1 p-5 position-relative z-2"></div>
-          <div class="row flex-grow-1 p-3 position-relative z-2">
-            <div class="col align-self-start transparent-paragraph">
-              <p class="fs-2 fw-bold text-center text-light">Matching catalysts with reactions through simulation</p>
-              <p class="fs-5 text-light" style="text-align: justify;">I use grand-canonical density functional theory to simulate 
-                the electrified interface between catalyst and electrolyte. My simulations have shown
-                previously unknown potential dependence of fundamental catalytic phenomena that, across material
-                spaces, have significant impacts on electrocatalyst design. The data generated throughout my PhD is 
-                <a href="https://beastdb.nrel.gov/">publicly available</a> 
-                and accompanied by an user interface that facilitates data exploration.</p>
-                <p class="fs-5 text-light" style="text-align: justify;">
-                I seek generalizable chemical knoweldge that can be used to design catalysts for arbitray
-                reactions. By smartly restricting chemical space and leveraging massively parallel workflows,
-                I can quickly downselect material spaces to a few promising candidates. My goal is to match
-                catalysts with reactions by identfiying kinetic bottlenecks that can be manipulated with
-                smart catalyst design. 
-              </p>
-            </div>
-          </div>
-        </div> 
+          </div> 
+        </div>
       </div>
     </div>
+  <!-- Main mobile content -->
+    <div class="container-fluid d-block d-sm-none">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10>
+          <div class="container-fluid">
+            <div class="row justify-content-center align-items-center">
+              <p class="name-fontsize fw-bold text-center text-light">Cooper Tezak</p>
+              <div class="col-8 align-self-center">
+                <img src="/images/headshot_atoms_circle.png", class="image-fluid", style="max-width: 100%;">
+              </div>
+              <div class="row flex-grow-1 text-center">
+                <!-- <p class="fs-1 text-light">PhD Candidate</p> -->
+                <p class="fs-1 text-light">Atomic Broker</p>
+              <div class="row flex-grow-1 justify-content-center align-items-center">
+                <div class="col-2">
+                  <a href="https://www.linkedin.com/in/cooper-tezak-75a15b165/" class="text-light" target="_blank">
+                    <img src="/images/linkedin-app-white-icon.png" class="img-fluid" alt="LinkedIn">
+                  </a>
+                </div>
+                <div class="col-2">
+                  <a href="" class="text-light" target="_blank">
+                    <img src="/images/github-logo-white.webp" class="img-fluid" alt="GitHub">
+                  </a>
+                </div>
+                <div class="col-2">
+                  <a href="https://scholar.google.com/citations?user=XBZAHmIAAAAJ&hl=en" class="text-light" target="_blank">
+                    <img src="/images/scholar_logo_white.png" class="img-fluid" alt="GitHub">
+                  </a>
+                </div>
+              <div class="row flex-grow-1 text-center p-3">
+                <p class="fs-2 text-center text-light transparent-paragraph">Matching catalysts with reactions through simulation</p>
+              </div>
+</div>             
 
 <script>
   // Configure MathJax
