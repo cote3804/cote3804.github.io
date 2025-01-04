@@ -116,11 +116,18 @@
         adsorbate frontier orbital energies, which lead to substantially different degrees of bonding for materials with similar d-band centers.
         To correctly precict trends in binding energy across complex material spaces, it is necessary to incorporate the geometry of the surface.
         <br><br>
-        <div class="h3 text-light">Bayesian Optimization of Battery Electrolyte Compositions</div>
+        <div class="h3 text-light">Battery Electrolyte Composition Optimization</div>
         I have recently begun working with 
         <a href="https://www.colorado.edu/lab/ban/">Chunmei Ban</a>
-        on optimizing experimental electrolyte composition for Na-ion batteries. I lead the effort to develop a Bayesian optimization framework
-        that uses a gaussian process to estimate the charge capacity at a given cycle based on the mass weights of electrolyte components. 
+        on optimizing experimental electrolyte composition for Na-ion batteries. I have succesfully implemented
+        information theoretic and simple expected improvement acquisiton functions on top of a gaussian process
+        surrogate model to efficiently explore compositions experimentally. However, the design space for electrolyte compositions
+        is huge and experiments are expensive. I am currently working on incorporating molecular features into the model using
+        graph neural networks to featurize molecular structures and attention mechanisms to create mixture level representations
+        from the constituent molecular features.
+        <a href="https://arxiv.org/abs/2312.16473">[7]</a>
+        The architecture of the model is summarized as <br> <br>
+        <img src="/images/molsets_diagram.png" class="img-fluid" alt="Molsets Architecture">
         <br><br>
       </div>
     </div>
@@ -139,6 +146,13 @@
       to have less occupied d-orbitals that were capable of strongly reducing the \( N_2 \) triple bond. However, all materials were
       inevitably limited by the desorption of \( NH_3* \) from the surface. <br> <br>
       </p>
+      <img src="/images/mean-acqf-EC-PF6.png" class="img-fluid" alt="Bayesian Optimization">
+      <p class="fs-6 px-5 text-light" style="text-align: justify;">
+        Bayesian Optimization model for battery electrolyte compositions. X and Y axes are fractions of chemicals 
+        EC and NaPF6. The left panel shows the mean of the model and the right shows the 
+        acquisiton function value, which is the
+        <a href="https://arxiv.org/abs/2310.20708">log expected improvement</a>
+        . <br> <br>
     </div>
   </div>
   <script>
