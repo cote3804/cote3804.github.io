@@ -25,7 +25,7 @@ min-height: 75vh;
 .custom-header {color: orange;}
 
 .transparent-column {
-    background-color: rgba(32, 32, 32, 0.85);
+    background-color: rgba(33, 37, 41, 0.85);
     /* Or you can use hsla: */
     /* background-color: hsla(0, 0%, 100%, 0.5); */
     padding: 15px;
@@ -65,4 +65,75 @@ min-height: 75vh;
   height: auto;
   max-width: none;
   object-fit: cover;
+}
+
+.transparent-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1.5rem;
+    display: block;
+    padding-left: 2px; 
+    padding-right: 15px;
+    position: relative;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.transparent-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(150deg, #FFC719, #BF033B);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+.transparent-button:hover::before {
+    opacity: 0.8;
+}
+.transparent-button:hover {
+    border: 1px solid white;
+}
+
+.fade {
+    background-color: #db1f48;
+    color: white;
+    transition: background-color 1s;
+  }
+.fade:hover {
+background-color: #004369;
+}
+
+.fade:focus,
+.fade:active {
+background-color: black;
+transition: none;
+}
+
+/* Enhance button interactivity */
+button, .transparent-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, .transparent-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:focus, .transparent-button:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+button:active, .transparent-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

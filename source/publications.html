@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research</title>
+    <link href="/css/main.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="/images/white_atom_logo_small.png" type="image/x-icon">
+    <!-- MathJax configuration (must be before MathJax script) -->
+    <script> 
+    MathJax = { 
+        loader: {load: ['[tex]/color']},
+        tex: { 
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: {'[+]': ['color']}
+        }, 
+        svg: { 
+            fontCache: 'global' 
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is ready');
+                MathJax.startup.defaultReady();
+            }
+        }
+    }; 
+    </script>
+    
+    <!-- Load scripts with defer - they'll execute in order after DOM is ready -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.1/marked.min.js"></script>
+    <script defer src="markdown-loader.js"></script>
+    <script defer src="research-render.js"></script>
+    <script src="load_pubs.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', displayPublications);
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      function forceRerender() {
+          if (window.MathJax) {
+              MathJax.typesetClear();
+              MathJax.typesetPromise().then(() => {;
+                console.log('MathJax re-rendered');
+              });
+          }
+      }
+    </script>
+  </head>
+<body class="bg-dark">
+  <div class="container-fluid px-0" > 
+    @@include('navbar.html')
+  </div>
+    <!-- Background image for desktop screen sizes -->
+    <div class="container-fluid text-center z-n1 position-absolute d-none d-md-block">
+    <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+        <div class="fullscreen-image-container">
+        <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
+        </div>
+    </div>
+    </div>
+    <!-- Background image for mobile screen sizes -->
+    <div class="container-fluid text-center z-n1 position-absolute d-block d-md-none">
+    <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+        <div class="mobile-image-container">
+        <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div id="publications"></div>
+        <div id="last-updated"></div>
+    </div>
+    
+  @@include('navbar_js.html')
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="transition: transform 0.2s ease, box-shadow 0.2s ease;">
+  <!-- ...existing code... -->
+  </button>
+</body>
+</html>

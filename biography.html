@@ -7,7 +7,11 @@
     <link href="/css/main.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</head>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.1/marked.min.js"></script>
+    <script defer src="markdown-loader.js"></script>
+    <script defer src="research-render.js"></script>
+  </head>
 <body class="bg-dark">
   <div class="container-fluid px-0" >  
     <nav class="navbar navbar-expand-sm navbar-dark bg-navbardark">
@@ -22,20 +26,15 @@
             <a class="nav-link fs-4" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fs-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link fs-4 text-light" href="publications.html">
               Publications
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/abs/10.1021/acscatal.3c01978">NRR Scaling Relations</a></li>
-              <li><a class="dropdown-item" target="_blank" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202304559">NRR Catalyst Screening</a></li>
-              <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06826">Electrocatalysis Database</a></li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-4" href="research.html">Research</a>
+            <a class="nav-link fs-4 text-light" href="research.html">Research</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-4" href="biography.html">Bio</a>
+            <a class="nav-link fs-4 text-light" href="biography.html">Bio</a>
           </li>
         </ul>
       </div>
@@ -63,9 +62,7 @@
     });
 </script>
 
-  <div id="content">
-    <h1>Biography</h1>
-    <p>This is my biography</p>
+  <div class="p-0 text-light" id="biography-content">
   </div>
 
 

@@ -7,24 +7,42 @@
     <link href="/css/main.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     <link rel="icon" href="/images/white_atom_logo_small.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- Include MathJax -->
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <script> 
+    <!-- MathJax configuration (must be before MathJax script) -->
+    <script> 
     MathJax = { 
         loader: {load: ['[tex]/color']},
         tex: { 
-            inlineMath: [['$', '$'],  
-                        ['\\(', '\\)']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
             packages: {'[+]': ['color']}
         }, 
         svg: { 
             fontCache: 'global' 
-        } 
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is ready');
+                MathJax.startup.defaultReady();
+            }
+        }
     }; 
-    </script> 
+    </script>
+    
+    <!-- Load scripts with defer - they'll execute in order after DOM is ready -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.1/marked.min.js"></script>
+    <script defer src="markdown-loader.js"></script>
+    <script defer src="research-render.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      function forceRerender() {
+          if (window.MathJax) {
+              MathJax.typesetClear();
+              MathJax.typesetPromise().then(() => {;
+                console.log('MathJax re-rendered');
+              });
+          }
+      }
+    </script>
   </head>
 <body class="bg-dark">
   <div class="container-fluid px-0" > 
@@ -40,20 +58,15 @@
             <a class="nav-link fs-4" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fs-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link fs-4 text-light" href="publications.html">
               Publications
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/abs/10.1021/acscatal.3c01978">NRR Scaling Relations</a></li>
-              <li><a class="dropdown-item" target="_blank" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202304559">NRR Catalyst Screening</a></li>
-              <li><a class="dropdown-item" target="_blank" href="https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06826">Electrocatalysis Database</a></li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-4" href="research.html">Research</a>
+            <a class="nav-link fs-4 text-light" href="research.html">Research</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-4" href="biography.html">Bio</a>
+            <a class="nav-link fs-4 text-light" href="biography.html">Bio</a>
           </li>
         </ul>
       </div>
@@ -65,73 +78,10 @@
     <div class="h1 text-light">Research</div>
   <div class="row pt-5">
     <div class="col">
-      <div class="h3 text-light">Electrocatalytic Scaling Relations</div>
-      <div class="p-0 text-light">
-        I combine electrochemical physics simulations with thermodynamic proxies of catalyst
-        activity to screen broad material spaces for active catalysts. Typical electrochemical studies
-        are done using the computational hydrogen electrode (CHE) model, in which the number of electrons
-        transferred in a step is assumed a-priori and must be coupled to simulataneous proton transfers. Following
-        the definition of the standard hydrogen electrode, one can set the chemical potential of a proton-electron pair equal to
-        one half that of a hydrogen atom. <br> <br>
-        \( G_{H^+} + G_{e^-} = -\frac{1}{2} G_{H_2} \) <br> <br>
-        The free energy of the proton is potential-independent and the potential dependence of the electron is 
-        given by the potential with respect to the standard hydrogen electrode (SHE).<br> <br>
-        \( G_{e^-} = G_{e^-}^0 - U_{SHE}\) <br> <br>
-        This then allows one to estimate the 
-        <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.201500322">Limiting Potential \(U_{L}\)</a>
-        at which an electrochemical step becomes favorable by dividing the free energy change of that step by the number
-        of electrons transferred <br><br>
-        \( U_{L} = -\frac{\Delta G_{step}}{N_{e}} \) <br> <br>
-        This approach has been widely successful in predicting electrocatalyst activity across a variety of reactions.
-        <a href="https://pubs.acs.org/doi/10.1021/jp047349j">[1]</a>
-        <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.201500322">[2]</a>
-        <a href="https://iopscience.iop.org/article/10.1149/1.1856988">[3]</a> <br> <br>
-
-        However, the CHE model cannot handle non proton-coupled electron transfer steps and enforces an integer number 
-        of electrons transferred in each step. For many reactions, there is significant evidence of fractional electron
-        transfers as well as electron transfers that do not involve proton transfers. 
-        <a href="https://pubs.acs.org/doi/abs/10.1021/acscatal.2c01832">[4]</a>
-        To capture these phenomena, it is necessary to simulate the system at fixed electron potential and allow the number
-        of electrons to self-consistently vary. I perform these simulations using Grand Canonical DFT (GC-DFT), which allows me to 
-        study systems under true fixed potentials. <br> <br>
-
-        Using GC-DFT takes away the easy interpretability of \(U_{L}\) and requires a different catalyst activity
-        descriptor that has no formal potential dependence. I developed \( \Phi_{max} \), a thermodynamic approximation
-        of the 
-        <a href="https://pubs.acs.org/doi/10.1021/ar1000956">energetic span</a>, which measures the largest barrier in a
-        cyclic catalytic cycle. I used this descriptor to re-evaluate the typical CHE volcano plots for the electrochemical nitrogen
-        reduction reaction to understand how explicit inclusion of potential changes catalyst scaling relations. 
-        <a href="https://pubs.acs.org/doi/abs/10.1021/acscatal.3c01978">[5]</a>
-        <br> <br>
-        
-        <div class="h3 text-light">Electrocatalyst Screening</div>
-        Using the scaling relations developed above, I screened a material space for promising nitrogen reduction catalysts.
-        This space consisted of binary metal-covalent alloys that combined p-block dopants with transition metals. We found that
-        even the most active catalysts in our dataset did not surpass the the activity of the most active metal catalysts because these 
-        covalent alloy materials fail to favorably break scaling relations.        
-        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202304559">[6]</a>
-        <br><br>
-        Furthermore, we found that traditional electronic structure descriptors like d-band and p-band centers were unable to 
-        predict trends in binding energy across the dataset. We believe this is due to the highly geometry-dependent change in the renormalized
-        adsorbate frontier orbital energies, which lead to substantially different degrees of bonding for materials with similar d-band centers.
-        To correctly precict trends in binding energy across complex material spaces, it is necessary to incorporate the geometry of the surface.
-        <br><br>
-        <div class="h3 text-light">Battery Electrolyte Composition Optimization</div>
-        I have recently begun working with 
-        <a href="https://www.colorado.edu/lab/ban/">Chunmei Ban</a>
-        on optimizing experimental electrolyte composition for Na-ion batteries. I have succesfully implemented
-        information theoretic and simple expected improvement acquisiton functions on top of a gaussian process
-        surrogate model to efficiently explore compositions experimentally. However, the design space for electrolyte compositions
-        is huge and experiments are expensive. I am currently working on incorporating molecular features into the model using
-        graph neural networks to featurize molecular structures and attention mechanisms to create mixture level representations
-        from the constituent molecular features.
-        <a href="https://arxiv.org/abs/2312.16473">[7]</a>
-        The architecture of the model is summarized as <br> <br>
-        <img src="/images/molsets_diagram.png" class="img-fluid" alt="Molsets Architecture">
-        <br><br>
+      <div class="p-0 text-light" id="research-content">
       </div>
     </div>
-    <div class="col">
+    <!-- <div class="col"> 
       <img src="/images/volcano.png" class="img-fluid" alt="Volcano Plot">
       <p class="fs-6 px-5 text-light" style="text-align: justify;">
         Re-evaluated nitrogen reduction reaction scaling relations using GC-DFT and the \( \Phi_{max} \) activity descriptor. Unlike
@@ -152,8 +102,8 @@
         EC and NaPF6. The left panel shows the mean of the model and the right shows the 
         acquisiton function value, which is the
         <a href="https://arxiv.org/abs/2310.20708">log expected improvement</a>
-        . <br> <br>
-    </div>
+        . <br> <br> 
+    </div> -->
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
