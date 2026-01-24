@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lan="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,13 +15,13 @@
     <script defer src="research-render.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.1/marked.min.js"></script>
 </head>
-<body class="bg-dark">
+<body class="my-bg-dark">
   <div class="container-fluid px-0" > 
     @@include('navbar.html')
   </div>
     <!-- Background image for desktop screen sizes -->
     <div class="container-fluid text-center z-n1 position-absolute d-none d-md-block">
-      <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+      <div class="row my-bg-dark bg-gradient nopadding opacity-50 z-n1">
         <div class="fullscreen-image-container">
           <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
         </div>
@@ -29,7 +29,7 @@
     </div>
     <!-- Background image for mobile screen sizes -->
     <div class="container-fluid text-center z-n1 position-absolute d-block d-md-none">
-      <div class="row bg-dark bg-gradient nopadding opacity-50 z-n1">
+      <div class="row my-bg-dark bg-gradient nopadding opacity-50 z-n1">
         <div class="mobile-image-container">
           <img src="./images/surface_transparent_zoomed_out.png" class="fullscreen-image z-n1"  alt="Main Image">
         </div>
@@ -44,7 +44,7 @@
             <div class="row flex-grow-1 align-items-center">
               <p class="name-fontsize fw-bold text-center text-light">Cooper Tezak</p>
               <div class="col-12 align-self-center">
-                <img src="/images/headshot_atoms_circle.png", class="image-fluid", style="max-width: 100%;">
+                <img src="/images/headshot_atoms_circle.png" class="img-fluid" style="max-width: 100%;" alt="Cooper Tezak">
               </div>
               <div class="row flex-grow-1 justify-content-center">
                 <p class="fs-3 text-light">Postdoctoral Researcher</p>
@@ -97,7 +97,7 @@
             <div class="row justify-content-center align-items-center">
               <p class="name-fontsize fw-bold text-center text-light">Cooper Tezak</p>
               <div class="col-8 align-self-center">
-                <img src="/images/headshot_atoms_circle.png", class="image-fluid", style="max-width: 100%;">
+                <img src="/images/headshot_atoms_circle.png" class="img-fluid" style="max-width: 100%;" alt="Cooper Tezak">
               </div>
               <div class="row flex-grow-1 text-center">
                 <!-- <p class="fs-1 text-light">PhD Candidate</p> -->
@@ -109,19 +109,24 @@
                   </a>
                 </div>
                 <div class="col-2">
-                  <a href="" class="text-light" target="_blank">
+                  <a href="https://github.com/cote3804" class="text-light" target="_blank">
                     <img src="/images/github-logo-white.webp" class="img-fluid" alt="GitHub">
                   </a>
                 </div>
                 <div class="col-2">
                   <a href="https://scholar.google.com/citations?user=XBZAHmIAAAAJ&hl=en" class="text-light" target="_blank">
-                    <img src="/images/scholar_logo_white.png" class="img-fluid" alt="GitHub">
+                    <img src="/images/scholar_logo_white.png" class="img-fluid" alt="Google Scholar">
                   </a>
                 </div>
+              </div>
               <div class="row flex-grow-1 text-center p-3">
                 <p class="fs-2 text-center text-light transparent-paragraph">Matching catalysts with reactions through simulation</p>
               </div>
-</div>             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>             
 
 <script>
   // Configure MathJax

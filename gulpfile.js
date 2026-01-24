@@ -1,39 +1,15 @@
-const gulp        = require('gulp');
-const { src, dest } = require('gulp');
-const fileinclude = require('gulp-file-include');
-const { series } = require('gulp');
+const gulp = require('gulp');
+const fileInclude = require('gulp-file-include');
 
-const paths = {
-  scripts: {
-    src: './source',
-    dest: './'
-  }
-};
+// Task to process HTML files with @@include directives
+gulp.task('html', function () {
+    return gulp.src('source/*.html')
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('./'));
+});
 
-async function includeHTML(){
-  return src([
-    './source/*.html',
-    './source/*.md',
-    './source/*.js',
-    '!header.html', // ignore
-    '!footer.html' // ignore
-    ])
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(dest(paths.scripts.dest));
-}
-
-// async function include_images() {
-//   return src('images/*')
-//     .pipe(dest('build/images/'));
-// }
-
-// async function include_publications() {
-//   return src('publications/*')
-//     .pipe(dest('build/publications/'));
-// }
-
-// exports.default = series(includeHTML, include_images, include_publications);
-exports.default = includeHTML;
+// Default task
+gulp.task('default', gulp.series('html'));

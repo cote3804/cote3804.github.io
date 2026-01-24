@@ -1,45 +1,58 @@
-.div-wrapper {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    align-items: flex-end;
+/* ==========================================================================
+   CSS Variables (Design Tokens)
+   ========================================================================== */
+:root {
+    --color-bg-dark: #343a40;
+    --color-bg-darker: #212529;
+    --color-text-light: #f8f9fa;
+    --color-accent-gold: #FFC719;
+    --color-accent-red: #BF033B;
+    --color-link: #007bff;
+
+    --font-size-name: 3rem;
+    --spacing-sm: 5px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s ease;
 }
 
-.div-wrapper img {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
 }
 
-.grey-square {
-    background-color: #6c757d; /* Bootstrap's secondary color */
-    width: 200px;
-    height: 200px;
-  }
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+.my-bg-dark {
+    background-color: var(--color-bg-dark);
+}
 
 .custom-vh-75 {
-min-height: 75vh;
+    min-height: 75vh;
 }
 
-.custom-header {color: orange;}
-
 .transparent-column {
-    background-color: rgba(33, 37, 41, 0.85);
-    /* Or you can use hsla: */
-    /* background-color: hsla(0, 0%, 100%, 0.5); */
-    padding: 15px;
-  }
+    background-color: var(--color-bg-darker);
+    padding: var(--spacing-md);
+}
 
-.transparent-paragraph{
-    background-color: rgba(32, 32, 32, 0.85); 
-
+.transparent-paragraph {
+    background-color: rgba(32, 32, 32, 0.85);
 }
 
 .name-fontsize {
-    font-size: 3rem; /* Or any size you prefer */
+    font-size: var(--font-size-name);
 }
 
+/* ==========================================================================
+   Background Image Containers
+   ========================================================================== */
 .fullscreen-image-container {
     position: relative;
     width: 100vw;
@@ -49,22 +62,48 @@ min-height: 75vh;
 
 .mobile-image-container {
     position: relative;
-    /* width: 100vw; */
     height: 100vh;
     overflow: hidden;
 }
-  
+
 .fullscreen-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+button,
+.transparent-button {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+button:hover,
+.transparent-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:focus,
+.transparent-button:focus {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+button:active,
+.transparent-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .transparent-button {
@@ -76,8 +115,8 @@ min-height: 75vh;
     color: white;
     font-size: 1.5rem;
     display: block;
-    padding-left: 2px; 
-    padding-right: 15px;
+    padding-left: 2px;
+    padding-right: var(--spacing-md);
     position: relative;
     border-radius: 8px;
     text-align: left;
@@ -90,50 +129,179 @@ min-height: 75vh;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(150deg, #FFC719, #BF033B);
+    background: linear-gradient(150deg, var(--color-accent-gold), var(--color-accent-red));
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity var(--transition-medium);
     z-index: -1;
 }
+
 .transparent-button:hover::before {
     opacity: 0.8;
 }
+
 .transparent-button:hover {
     border: 1px solid white;
 }
 
-.fade {
-    background-color: #db1f48;
+/* ==========================================================================
+   Tier List Feature
+   ========================================================================== */
+.tier-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    margin-right: 320px;
+}
+
+.tier {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px 10px 80px;
+    position: relative;
+    border: 1px solid #555;
+    gap: 8px;
+}
+
+.tier-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.tier.S .tier-label { background-color: #ff7f7f; }
+.tier.A .tier-label { background-color: #ffbf7f; }
+.tier.B .tier-label { background-color: #ffdf7f; }
+.tier.C .tier-label { background-color: #ffff7f; color: #333; }
+.tier.NA .tier-label { background-color: #7fbfff; }
+
+.tier-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    cursor: grab;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    user-select: none;
+    flex-shrink: 0;
+    flex-direction: column;
+    padding: 4px;
+}
+.tier-ball img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.tier-ball span {
+    font-size: 0.5rem;
+    margin-top: 2px;
+}
+
+.ball-container {
+    position: fixed;
+    top: 120px;
+    right: 30px;
+    width: 280px;
+    max-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: #2a2a2a;
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    align-content: flex-start;
+}
+
+.vote-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+#submit-vote {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#submit-vote:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#vote-status {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Dot Animation (Charge Transport Simulation)
+   ========================================================================== */
+.pattern-container {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    gap: 1px;
+    padding: 1px;
+    background-color: var(--color-bg-dark);
+}
+
+.pattern-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-bg-dark);
+    transition: all 0.1s ease;
+    transform-origin: center;
+}
+
+.pattern-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
     color: white;
-    transition: background-color 1s;
-  }
-.fade:hover {
-background-color: #004369;
+    background: rgba(0, 0, 0, 0.8);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    font-size: 14px;
 }
 
-.fade:focus,
-.fade:active {
-background-color: black;
-transition: none;
+.pattern-controls button {
+    margin: var(--spacing-sm);
+    padding: 8px 16px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Enhance button interactivity */
-button, .transparent-button {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover, .transparent-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button:focus, .transparent-button:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
-}
-
-button:active, .transparent-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.pattern-controls button:hover {
+    background: #555;
 }
