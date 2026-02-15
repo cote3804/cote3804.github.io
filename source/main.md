@@ -1,12 +1,6 @@
-### Matching catalysts with reactions through simulation
+### Electrochemical Engineering Guided by Simulation
 
-I use grand-canonical density functional theory to simulate 
-the electrified interface between catalyst and electrolyte. My simulations have shown
-previously unknown potential dependence of fundamental catalytic phenomena that, across material
-spaces, have significant impacts on electrocatalyst design. The data generated throughout my PhD is 
-and accompanied by an user interface that facilitates data exploration.</p>
-I seek generalizable chemical knoweldge that can be used to design catalysts for arbitray
-reactions. By smartly restricting chemical space and leveraging massively parallel workflows,
-I can quickly downselect material spaces to a few promising candidates. My goal is to match
-catalysts with reactions by identfiying kinetic bottlenecks that can be manipulated with
-smart catalyst design.
+I leverage electronic structure theory to understand the mechanisms that underpin the macroscopic performance of electrocatalytic materials. By understanding mechanisms, I can accelerate the design of active materials used in electrochemical applications.
+Beyond first principles, I also apply advanced deep learning techniques that leverage pretrained chemical "foundation" models to encode computable representations into chemical structures. I use these architectures to predict macroscopic observables of liquid electrolytes from chemical fomulation alone and discover the patterns that exist in the interactions between electrolyte molecules.
+I have recently begun a postdoctoral position in the Furst Lab at MIT, where I have stretched myself to do experimental research, with the goal of directly measuring the predictions of my models.
+I aim to apply my simulation skillsets with my nascent experimental expertise to design materials and unit operations to electriy hard-to-decarbonize sections of heavy industry.

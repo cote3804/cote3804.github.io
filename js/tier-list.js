@@ -217,11 +217,10 @@ function updateStatsText(software, stats) {
         <p><strong>Total Votes:</strong> ${total}</p>
         <p><strong>Tier Breakdown:</strong></p>
         <ul style="list-style: none; padding: 0;">
-            <li>🏆 S-Tier: ${stats.S || 0} votes (${percentages.S}%)</li>
-            <li>⭐ A-Tier: ${stats.A || 0} votes (${percentages.A}%)</li>
-            <li>👍 B-Tier: ${stats.B || 0} votes (${percentages.B}%)</li>
-            <li>👌 C-Tier: ${stats.C || 0} votes (${percentages.C}%)</li>
-            <li>👎 D-Tier: ${stats.D || 0} votes (${percentages.D}%)</li>
+            <li>S-Tier: ${stats.S || 0} votes (${percentages.S}%)</li>
+            <li>A-Tier: ${stats.A || 0} votes (${percentages.A}%)</li>
+            <li>B-Tier: ${stats.B || 0} votes (${percentages.B}%)</li>
+            <li>C-Tier: ${stats.C || 0} votes (${percentages.C}%)</li>
         </ul>
     `;
 }

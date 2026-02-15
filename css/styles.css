@@ -217,7 +217,7 @@ button:active,
 }
 
 .ball-container {
-    position: fixed;
+    position: absolute;
     top: 120px;
     right: 30px;
     width: 280px;

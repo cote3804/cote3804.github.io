@@ -3,15 +3,19 @@
 
 console.log('Research page script loading...');
 
-// Load the research content into the designated div
-initializeMarked();
-loadMarkdownFile('research.md', 'research-content');
-loadMarkdownFile('biography.md', 'biography-content');
-loadMarkdownFile('main.md', 'main-content');
+// Ensure marked is initialized before loading markdown files to avoid a race.
+(async function() {
+    await initializeMarked();
 
-// Optional: Force MathJax rerender after content loads
-setTimeout(() => {
-    if (window.forceRerender) {
-        forceRerender();
-    }
-}, 500);
+    // Load the research content into the designated div
+    loadMarkdownFile('research.md', 'research-content');
+    loadMarkdownFile('biography.md', 'biography-content');
+    loadMarkdownFile('main.md', 'main-content');
+
+    // Optional: Force MathJax rerender after content loads
+    setTimeout(() => {
+        if (window.forceRerender) {
+            forceRerender();
+        }
+    }, 500);
+})();
